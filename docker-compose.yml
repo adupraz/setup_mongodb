@@ -16,7 +16,10 @@ services:
       - "mongo1_data:/data/db"
       - "mongo1_config:/data/configdb"
 
-
+volumes:
+  mongo1_data:
+  mongo1_config:
+  
 networks:
     BBD_net:
       driver: bridge

@@ -1,9 +1,11 @@
+version: "3.8"
+
 services:
   mongo1:
     image: mongo:7.0
     command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
     ports:
-      - 443:27017
+      - 27017:27017
     extra_hosts:
       - "host.docker.internal:host-gateway"
     healthcheck:
@@ -11,6 +13,7 @@ services:
       interval: 5s
       timeout: 30s
       start_period: 0s
+      start_interval: 1s
       retries: 30
     volumes:
       - "mongo1_data:/data/db"
@@ -19,14 +22,3 @@ services:
 volumes:
   mongo1_data:
   mongo1_config:
-
-networks:
-    BBD_net:
-      driver: bridge
-      
- 
-##docker-compose& run
-
-##to suppress docker
-##docker system prune -a
-##docker volume prune

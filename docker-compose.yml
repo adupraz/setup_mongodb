@@ -1,5 +1,5 @@
 services:
-  mongoIB:
+  mongoib:
     container_name: "mongoIB"
     ports:
       - 27019:27019

@@ -1,16 +1,14 @@
-version: "3.8"
-
 services:
-  mongo1:
+  mongo2:
     image: mongo:7.0
-    command: ["--replSet", "rs0", "--bind_ip_all", "--port", "27017"]
+    command: ["--name", "mongo2", "--replSet", "rs0", "--bind_ip_all", "--port", "27018", "--network", "networkTest", "--bind_ip", "localhost"]
     ports:
-      - 27017:27017
+      - 27018:27018
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
-      - "mongo1_data:/data/db"
-      - "mongo1_config:/data/configdb"
+      - "mongo2_data:/data/db"
+      - "mongo2_config:/data/configdb"
 
 volumes:
   mongo1_data:

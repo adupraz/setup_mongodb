@@ -3,7 +3,7 @@ services:
     container_name: "mongoIB"
     ports:
       - "27017/tcp:27017/tcp"
-      - "27017:27017"
+      - 27017:27017
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:

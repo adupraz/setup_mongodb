@@ -13,3 +13,8 @@ until (mongosh admin --port $MONGO_REPLICA_PORT --eval "$INIT_CREATE_CMD"); do s
 until (mongosh admin --port $MONGO_REPLICA_PORT --eval "$INIT_USER_CMD"); do sleep 5; done; \
 # we are done but we keep the container by waiting on signals from the mongo task
 echo "REPLICA SET ONLINE"; wait $MONGOD_PID;
+
+
+##db.createUser({user: "mongoIB", pwd: "pass", roles:[ 'dbAdmin'] })
+##db.createUser({ user: "mongoIB", pwd: "pass", roles: [ { role: "dbAdmin", db: "admin" } ]
+##docker exec -it mongoIB mongosh --eval 'db.createUser({ user: "mongoIB", pwd: "pass", roles: [ { role: "dbAdmin", db: "admin" } ] })'

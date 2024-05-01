@@ -2,7 +2,7 @@ services:
   mongoib:
     container_name: "mongoIB"
     ports:
-      - 27017:27017
+      - 80:80
     volumes:
       - "mongo_data:/data/db"
       - "mongo_config:/data/configdb"
@@ -13,10 +13,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: pass
       MONGO_INITDB_DATABASE: mongoIB
       MONGO_REPLICA_HOST: localhost
-      MONGO_REPLICA_PORT: 27017
+      MONGO_REPLICA_PORT: 80
     build: ./mongoDB
-    expose:
-      - 27017
 
 
 volumes:

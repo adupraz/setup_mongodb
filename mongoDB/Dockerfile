@@ -1,4 +1,4 @@
-FROM mongo:7
+FROM mongo:4
 
 
 # we take over the default & start mongo in replica set mode in a background task

@@ -11,7 +11,7 @@ services:
     networks:
       - mongoCluster
     environment:
-      MONGO_INITDB_ROOT_USERNAME: mongo
+      MONGO_INITDB_ROOT_USERNAME: mongoIB
       MONGO_INITDB_ROOT_PASSWORD: pass
       MONGO_INITDB_DATABASE: mongoIB
       MONGO_REPLICA_HOST: localhost

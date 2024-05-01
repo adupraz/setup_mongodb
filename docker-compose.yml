@@ -16,3 +16,7 @@ services:
 volumes:
   mongo_data:
   mongo_config:
+
+networks:
+  mongoIBCluster:
+    driver: bridge

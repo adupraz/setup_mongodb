@@ -10,6 +10,10 @@ services:
       - "mongo_config:/data/configdb"
     networks:
       - mongoCluster
+    command:
+      - '--auth'
+      - '-f'
+      - '/etc/mongod.conf'
     environment:
       MONGO_INITDB_ROOT_USERNAME: mongo
       MONGO_INITDB_ROOT_PASSWORD: pass

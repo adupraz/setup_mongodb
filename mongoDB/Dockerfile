@@ -2,7 +2,7 @@ FROM mongo:7
 
 
 # we take over the default & start mongo in replica set mode in a background task
-ENTRYPOINT mongod --port $MONGO_REPLICA_PORT --replSet rs0 --bind_ip 0.0.0.0 & MONGOD_PID=$!; \
+ENTRYPOINT mongod --port $MONGO_REPLICA_PORT --replSet rs0 --bind_ip localhost & MONGOD_PID=$!; \
 # we prepare the replica set with a single node and prepare the root user config
 INIT_REPL_CMD="rs.initiate({ _id: 'rs0', members: [{ _id: 0, host: '$MONGO_REPLICA_HOST:$MONGO_REPLICA_PORT' }] })"; \
 INIT_CREATE_CMD="use datas"; \

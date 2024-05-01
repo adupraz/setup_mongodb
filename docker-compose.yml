@@ -2,7 +2,7 @@ services:
   mongoib:
     container_name: "mongoIB"
     ports:
-      - 27017:27017
+      - 27018:27018
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -15,7 +15,7 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: pass
       MONGO_INITDB_DATABASE: mongoIB
       MONGO_REPLICA_HOST: localhost
-      MONGO_REPLICA_PORT: 27017
+      MONGO_REPLICA_PORT: 27018
     build: ./mongoDB
 
 

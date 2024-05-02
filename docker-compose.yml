@@ -2,7 +2,7 @@ services:
   mongoib:
     container_name: "mongoIB"
     ports:
-      - "0.0.0.0:443:27017"
+      - "443:27017"
     volumes:
       - "mongo_data:/data/db"
       - "mongo_config:/data/configdb"
@@ -13,8 +13,16 @@ services:
       MONGO_REPLICA_HOST: localhost
       MONGO_REPLICA_PORT: 27017
     build: ./mongoDB
+    expose:
+      - 27017
+    networks:
+      - mongoIBCluster
 
 
 volumes:
   mongo_data:
   mongo_config:
+
+networks:
+  mongoIBCluster:
+    driver: bridge

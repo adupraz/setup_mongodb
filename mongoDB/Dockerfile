@@ -9,10 +9,11 @@ INIT_CREATE_CMD="use datas"; \
 INIT_USER_CMD="db.createUser({user: '$MONGO_INITDB_ROOT_USERNAME', pwd: '$MONGO_INITDB_ROOT_PASSWORD', roles:[ 'dbAdmin'] })"; \
 # we wait for the replica set to be ready and then submit the command just above
 until (mongosh admin --port $MONGO_REPLICA_PORT --eval "$INIT_REPL_CMD"); do sleep 5; done; \
+echo "REPLICA SET ONLINE"; wait $MONGOD_PID;
 #until (mongosh admin --port $MONGO_REPLICA_PORT --eval "$INIT_CREATE_CMD"); do sleep 5; done; \
 #until (mongosh admin --port $MONGO_REPLICA_PORT --eval "$INIT_USER_CMD"); do sleep 5; done; \
 # we are done but we keep the container by waiting on signals from the mongo task
-echo "REPLICA SET ONLINE"; wait $MONGOD_PID;
+
 
 
 ##db.createUser({user: "mongoIB", pwd: "pass", roles:[ 'dbAdmin'] })

@@ -18,7 +18,6 @@ services:
     networks:
       - mongoIBCluster
 
-
 volumes:
   mongo_data:
   mongo_config:
